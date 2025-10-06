@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "AI Appointment Scheduler API",
+    "description": "This API provides intelligent appointment scheduling capabilities through both text and image inputs. It uses advanced NLP and OCR techniques to extract and normalize appointment date and time information.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "your-collection-id"
+  },
+  "item": [
+    {
+      "name": "Text Operations",
+      "description": "Operations with text-based appointment requests",
+      "item": [
+        {
+          "name": "Parse Text",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/parse-text",
+              "host": ["{{baseUrl}}"],
+              "path": ["parse-text"]
+            },
+            "description": "Extracts appointment information from plain text input. The endpoint processes the input text, extracts date and time entities, normalizes the extracted information, and returns a structured appointment object.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"text\": \"Schedule an appointment for tomorrow at 2pm\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/parse-text"
+                }
+              },
+              "status": "200",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "appointment": {
+                  "date": "2025-10-07",
+                  "time": "14:00:00"
+                },
+                "status": "success",
+                "message": "Appointment details extracted successfully"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Image Operations",
+      "description": "Operations with image-based appointment requests using OCR",
+      "item": [
+        {
+          "name": "Parse Image",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/parse-image",
+              "host": ["{{baseUrl}}"],
+              "path": ["parse-image"]
+            },
+            "description": "Extracts appointment information from an image using OCR. The endpoint processes the image, extracts text, identifies date and time entities, normalizes the information, and returns a structured appointment object.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": [],
+                  "description": "Image file containing appointment text"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/parse-image"
+                }
+              },
+              "status": "200",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "appointment": {
+                  "date": "2025-10-07",
+                  "time": "14:00:00"
+                },
+                "status": "success",
+                "message": "Appointment details extracted successfully from image"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000",
+      "type": "string",
+      "description": "Base URL for the API"
+    }
+  ]
+}
