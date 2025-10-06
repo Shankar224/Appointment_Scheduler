@@ -1,0 +1,22 @@
+{
+    "text_requests": [
+        {
+            "description": "Simple appointment request",
+            "input": {
+                "text": "Book dentist next Friday at 3pm"
+            }
+        },
+        {
+            "description": "Ambiguous time request",
+            "input": {
+                "text": "Schedule eye doctor tomorrow"
+            }
+        },
+        {
+            "description": "Complex date format",
+            "input": {
+                "text": "Book cardiologist on 25th October 2025 at 2:30pm"
+            }
+        }
+    ]
+}
