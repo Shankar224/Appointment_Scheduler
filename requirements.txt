@@ -7,3 +7,4 @@ spacy==3.7.0
 dateparser==1.1.8
 pytz==2024.1
 typing_extensions==4.8.0
+gunicorn==23.0.0
