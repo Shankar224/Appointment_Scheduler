@@ -1,12 +1,12 @@
-# AI-Powered Appointment Scheduler Assistant
+## AI-Powered Appointment Scheduler Assistant
 
 This backend service parses natural language appointment requests from both text and images, converting them into structured scheduling data.
 
-# PLUM-ASSIGNMENT — AI Appointment Scheduler (backend)
+## PLUM-ASSIGNMENT — AI Appointment Scheduler (backend)
 
 This repository contains a small backend service that converts natural-language appointment requests (text or images) into clean, structured scheduling data. It demonstrates practical application of OCR, NLP, and date/time normalization in a modular pipeline useful for chatbots, voice assistants, or calendar integrations.
 
-Tech stack
+## Tech stack
 
 - Python 3.8+
 - FastAPI (HTTP API)
@@ -14,20 +14,20 @@ Tech stack
 - pytesseract + Tesseract OCR (image -> text)
 - Pydantic (validation)
 
-Core capabilities
+## Core capabilities
 
 - Parse free-form appointment requests from text
 - Extract text from images and run the same NLP pipeline
 - Identify date/time/department and normalize to ISO + timezone
 - Return clear statuses: `ok`, `needs_clarification`, or `error`
 
-Repository highlights
+## Repository highlights
 
 - Modular pipeline: `ocr_module.py`, `nlp_module.py`, `normalize_module.py`, `utils.py` and `schemas.py`.
 - Clearly defined API with OpenAPI docs (FastAPI) for easy integration and testing.
 - Designed to be testable and replaceable components (swap OCR or NLU easily).
 
-Setup 
+## Setup 
 
 1. Create a virtual environment and activate it (Windows PowerShell):
 
@@ -54,10 +54,11 @@ python -m spacy download en_core_web_sm
 ```powershell
 uvicorn app.main:app --reload
 ```
+## Documentation
+- The app will be available at [Live-Link](https://appointment-scheduler-41z0.onrender.com/) and the interactive docs at [Swagger UI Docs](https://appointment-scheduler-41z0.onrender.com/docs)
+- Postmand Documentation : [Link](https://documenter.getpostman.com/view/44143506/2sB3QJPWHe)
 
-The app will be available at http://localhost:8000 and the interactive docs at http://localhost:8000/docs
-
-API usage examples
+## API usage examples
 
 1) Parse plain text (curl / PowerShell):
 
@@ -87,7 +88,7 @@ Example successful response (abbreviated):
 }
 ```
 
-Architecture and flow
+## Architecture and flow
 
 High-level pipeline (module responsibilities):
 
